@@ -6,12 +6,24 @@
 
 <body>
     <?php
+    spl_autoload_register(function ($nombre_clase) {
+        include $nombre_clase . '.php';
+    });
+    use Clases\Libro;
         if(isset($_GET["m"])){
             $mensaje = $_GET["m"];
             echo "$mensaje";
+            $serializado = file_get_contents('libroSerializado');
+            $libroDesserializado = unserialize($serializado);
+            echo "Fecha publicacion: ".$libroDesserializado->getFechaPublicacion()."<br>";
+            echo "Numero de paginas: ".$libroDesserializado->getNumPaginas()."<br>";
+            echo "Titulo: ".$libroDesserializado->getTitulo()."<br>";
+            echo "Vendible: ".$libroDesserializado->getVendible()."<br>";
+            echo "Ruta imagen: ".$libroDesserializado->rutaImagen."<br>";
+
         }
     ?>
-    <form name="form_hobby" method="POST" action="destino.php">
+    <form name="form_hobby" method="POST" action="destino1.php"  enctype="multipart/form-data">
         <label>Titulo</label>
         <input type="text" name="titulo">
         <br>
