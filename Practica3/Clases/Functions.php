@@ -3,7 +3,7 @@ namespace Clases;
 
 class Funciones{
 //Funcion que genera una fecha aleatoria
-function esFecha(){
+static function esFecha(){
     $dias=['01','02','03','04','05','06','07','08','09','10'];
     $mes=['01','02','03','04','05','06','07','08','09','10'];
     $fecha='';
@@ -14,7 +14,7 @@ function esFecha(){
  }
  
  //Funcion que genera un booleano aleatorio
- function esBooleano(){
+ static function esBooleano(){
     $condicion = rand(0,1);
     if($condicion){
        return TRUE;
@@ -24,7 +24,7 @@ function esFecha(){
  }
  
 //Funcion que genera una cadena aleatoria
-function esCadena(){
+static function esCadena(){
     $abecedario=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','ñ','o','p','q','r','s','t','u','v','w','x','y','z'];
     $cadena="";
     $vueltas=rand(1,10);
@@ -37,7 +37,7 @@ function esCadena(){
     
     
     //Funcion que genera un entero aleatorio
-    function esEntero(){
+    static function esEntero(){
        $numeros=[0,1,2,3,4,5,6,7,8,9];
        $numero='';
        $vueltas=rand(3,8);
@@ -48,7 +48,7 @@ function esCadena(){
        return $numero;
     }
     
-    function esDecimal(){
+    static function esDecimal(){
        $numeros=[0,1,2,3,4,5,6,7,8,9];
        $entero='';
        $vueltas=rand(1,3);

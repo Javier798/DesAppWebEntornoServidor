@@ -1,14 +1,16 @@
 <?php
 
+
 spl_autoload_register(function ($nombre) {
     require(str_replace("Clases\\","",$nombre) . '.php');
 });
 
+require("Trait.php");
 use Clases\Hobby;
 
 class Libro2 extends Hobby{
 
-    use Tiempos;
+    use Clases\Tiempos;
     private static $tiempoMaximo;
     private static $tiempoMinimo;
 	/**
@@ -53,12 +55,3 @@ class Libro2 extends Hobby{
         echo $this->tiempoMaximo;
     }
 }
-trait Tiempos {
-function tiempoMaximo($tiempo) {
-    
-}
-function tiempoMinimo($tiempo) {
-    
-}
-}
-?>

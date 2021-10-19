@@ -2,30 +2,34 @@
 namespace Clases;
 require("Functions.php");
 
-use Clases\Funciones as ClasesFunciones;
+use Clases\Funciones;
 
 
 
-class Ayuda{
-
-    protected $f;
-
-    function __construct() {
-        $this->f = new ClasesFunciones();
-    }
+ class Ayuda{
 
     
-    public function generarTitulo(){
-        return $this->f->esCadena();
+
+    /*function __construct() {
+        $this->f = new ClasesFunciones();
+    }*/
+
+    
+    public static function generarTitulo(){
+
+        return Funciones::esCadena();
     }
-    public function generarPaginas(){
-        return $this->f->esEntero();
+    public static function generarPaginas(){
+
+        return Funciones::esEntero();
     }
-    public function generarVendible(){
-        return $this->f->esBooleano();
+    public static function generarVendible(){
+
+        return Funciones::esBooleano();
     }
-    public function generarFecha(){
-        return $this->f->esFecha();
+    public static function generarFecha(){
+
+        return Funciones::esFecha();
     }
 }
 ?>

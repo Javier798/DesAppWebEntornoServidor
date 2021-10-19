@@ -8,9 +8,9 @@ spl_autoload_register(function ($nombre) {
 
 echo "Ayuda:<br>";
 
-$ayuda = new Ayuda();
+//$ayuda = new Ayuda();
 
-echo "Titulo:" . $ayuda->generarTitulo() . ", Painas: " . $ayuda->generarPaginas() . ", Vendible: " . $ayuda->generarVendible() . ", Fecha: " . $ayuda->generarFecha() . "<br><br>";
+echo "Titulo:" . Ayuda::generarTitulo() . ", Painas: " . Ayuda::generarPaginas() . ", Vendible: " . Ayuda::generarVendible() . ", Fecha: " . Ayuda::generarFecha() . "<br><br>";
 
 $libro1 = new libro("El lorito pepe",23,TRUE,"78/09/2021");
 
