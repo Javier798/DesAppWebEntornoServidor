@@ -3,8 +3,8 @@
 namespace Clases;
 
 
-require("AccionesBD.php");
-require("Libro.php");
+require_once("AccionesBD.php");
+
 /**
  * Clase de gestion de libros
  */
@@ -23,10 +23,11 @@ class GestorBBDD implements AccionesBD
     function insertar($array)
     {
         try {
-            $sql = "INSERT INTO `login`(`USUARIO`, `CONTRASEÑA`) VALUES ('$array[USUARIO]', $array[CONTRASEÑA])";
+            $sql = "INSERT INTO `login`(`USUARIO`, `CONTRASEÑA`) VALUES ('$array[USUARIO]', '$array[CONTRASEÑA]')";
+            echo $sql;
             $resultado = $this->conexion->query($sql);
             if ($resultado) {
-                echo "Usuario dado de alta correctamente. Hay ahora mismo " . $resultado->rowCount() . " libros. <br>";
+                echo "Usuario dado de alta correctamente.";
             } else {
                 print_r($this->conexion->errorInfo());
                 throw new \Exception("Error por consulta");
@@ -106,7 +107,6 @@ class GestorBBDD implements AccionesBD
         try {
             $sql = "SELECT * FROM `login` ";
             $libros = $this->conexion->query($sql);
-            $contador = 1;
             return $libros;
 
             
@@ -134,18 +134,11 @@ class GestorBBDD implements AccionesBD
             }
             $contador++;
         }
-
         $sql = "SELECT * FROM `login` WHERE $sentencia";
-
         $libros = $this->conexion->query($sql);
-        $contador = 1;
-        foreach ($libros as $libro) {
-            echo "Libro " . $contador . ":<br>";
-            echo "Titulo:" . $libro["TITULO"] . " Numero de paginas: " . $libro["NUMPAGINAS"] . " Vendible: " . $libro["VENDIBLE"] . " Fecha Publicacion" . $libro["FECHAPUBLI"] . "<br><br>";
-            $contador++;
-        }
+        return $libros;
 
-        echo "Número de libros : " . $libros->rowCount() . "<br>";
+        
     }
 /**
  * Llama al metodo privado
