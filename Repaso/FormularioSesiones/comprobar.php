@@ -24,6 +24,9 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $gestor = new GestorBBDD(Conexion::getConexion("localhost:3307","practicasprimerexamen","root",""));
 
     $resultado = $gestor->obtenerHobbiesFiltros($arrayFiltros);
+    if($resultado->rowCount()==0){
+        header('Location: http://localhost/dawes/FormularioSesiones/login.php?respuesta='."El usuario no existe<br>");
+    }
     foreach ($resultado as $usuario) {
         if($usuario["CONTRASEÑA"]==$usu->getContraseña()){
             session_start();

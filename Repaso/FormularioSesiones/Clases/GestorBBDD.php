@@ -135,7 +135,9 @@ class GestorBBDD implements AccionesBD
             $contador++;
         }
         $sql = "SELECT * FROM `login` WHERE $sentencia";
+        echo $sql;
         $libros = $this->conexion->query($sql);
+        var_dump($libros);
         return $libros;
 
         
