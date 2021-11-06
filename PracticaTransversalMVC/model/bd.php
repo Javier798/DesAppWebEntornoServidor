@@ -20,7 +20,6 @@ class bd
      */
     function obtenerRestaurantesFiltros($array)
     {
-
         $contador = 0;
         $sentencia = "";
 
