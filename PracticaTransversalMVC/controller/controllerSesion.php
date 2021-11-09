@@ -33,7 +33,7 @@ class controllerSesion
         if (empty($restaurante) || empty($contraseña)) {
             //$nueva_accion = $ruta_hasta_frontal.'/login';
             $respuesta = "Introduzca ambos campos";
-            require("view/login.php");
+            $this->login($respuesta);
             //header("Location: ".$nueva_accion);
             //   header('Location: login/?respuesta=' . "Usuario o contraseña incorrectos<br>");
             //   return true;
@@ -63,7 +63,7 @@ class controllerSesion
                 return;
             } else {
                 $respuesta = "Usuario o contraseña incorrectos";
-                require("view/login.php");
+                $this->login($respuesta);
                 //$nueva_accion = $ruta_hasta_frontal.'/login';
                 //   header("Location: ".$nueva_accion);
                 //   header('Location: login/?respuesta=' . "Usuario o contraseña incorrectos<br>");
