@@ -123,8 +123,15 @@ class ApiController
                     "CodCategoria=" => $id
                 ];
                 $resultado = $this->gestor->obtenerProductosFiltros($arrayFiltros);
-            foreach ($resultado as $categoria) {
-                array_push($array["categorias"],$categoria);
+            foreach ($resultado as $producto) {
+                $aux= array();
+                $aux["CodProducto"]=$producto["CodProducto"];
+                $aux["Nombre"]=$producto["Nombre"];
+                $aux["Descripcion"]=$producto["Descripcion"];
+                $aux["Peso"]=$producto["Peso"];
+                $aux["Stock"]=$producto["Stock"];
+                $aux["CodCategoria"]=$producto["CodCategoria"];
+                array_push($array["categorias"],$aux);
             }
                 echo json_encode($array);
             }else{
@@ -151,7 +158,12 @@ class ApiController
                 ];
                 $resultado = $this->gestor->obtenerPedidosFiltros($arrayFiltros);
             foreach ($resultado as $pedido) {
-                array_push($array["pedidos"],$pedido);
+                $aux= array();
+                $aux["CodPedido"] = $pedido["CodPedido"];
+                $aux["Fecha"] = $pedido["Fecha"];
+                $aux["Enviado"] = $pedido["Enviado"];
+                $aux["CodRes"] = $pedido["CodRes"];
+                array_push($array["pedidos"],$aux);
             }
                 echo json_encode($array);
             }else{
