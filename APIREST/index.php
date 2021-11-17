@@ -8,7 +8,6 @@ require("vendor/autoload.php");
 require("repositorios/ApiController.php");
 require("model/bd.php");
 require("model/Conexion.php");
-require_once("model/productoCompleto.php");
 $controllerSession = new controllerSesion();
 $controllerCompra = new controllerCompra();
 $api = new ApiController();
@@ -27,9 +26,10 @@ if (isset($array_ruta[0]) && $array_ruta[0] == "login") {
     $api->getTokenSimple();
 } else if(isset($array_ruta[0]) && $array_ruta[0] == "categoriasSimple"){
     $api->getCategoriasSimple();
-}else if(isset($array_ruta[0]) && $array_ruta[0] == "categoriasJWT"){
-
+}else if(isset($array_ruta[0]) && $array_ruta[0] == "categoriasProdJWT"){
     $api->getPrdoCategorias($array_ruta[1]);
+}else if(isset($array_ruta[0]) && $array_ruta[0] == "categoriasJWT"){
+    $api->getCategorias();
 } else if (isset($array_ruta[0]) && $array_ruta[0] == "loginJWT") {
     $api->getTokenJWT();
 
